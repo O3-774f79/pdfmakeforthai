@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
+import pdfFonts from "./vfs_font_v2";
 
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+pdfMake.vfs = pdfFonts;
+
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 pdfMake.fonts = {
   THSarabunNew: {
@@ -43,13 +45,14 @@ function printPDF(){
 
   var docDefinition = {
     content: [
-      { text: 'สร้าง PDF ภาษาไทยด้วย pdfmake ', fontSize: 15 },
+      { text: 'สร้าง PDF ภาษาไทยด้วย ๑๒๓๔ pdfmake ', fontSize: 15 },
     ],
     defaultStyle:{
       font:'THSarabunNew'
     }
   };
   pdfMake.createPdf(docDefinition).open()
+  // pdfMake.createPdf(docDefinition).download()
 
 }
 
